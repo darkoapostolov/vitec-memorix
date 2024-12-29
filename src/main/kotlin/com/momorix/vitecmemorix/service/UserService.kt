@@ -31,7 +31,7 @@ class UserService(private val userRepository: UserRepository) {
 
         val totalUsers = userRepository.count().toInt()
         val pageable = PageRequest.of(0, limit)
-        val usersToList = userRepository.findAllByNameStartingWith(query, pageable)
+        val usersToList = userRepository.findAllByNameStartingWithIgnoreCase(query, pageable)
             .map(User::mapToDTO)
 
         return UserListDTO(usersToList, totalUsers)
