@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository
 interface UserRepository : JpaRepository<User, Long> {
     fun findUserByEmail(email: String): User?
 
-    fun findAllByNameStartingWith(name: String, pageable: Pageable): List<User>
+    fun findAllByNameStartingWithIgnoreCase(name: String, pageable: Pageable): List<User>
 
 }
