@@ -1,11 +1,9 @@
 package com.momorix.vitecmemorix.model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
+@Table(name = "memorix_users")
 data class User(
     var name: String,
     var email: String,

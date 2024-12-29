@@ -20,6 +20,7 @@ repositories {
 }
 
 dependencies {
+	implementation("org.postgresql:postgresql:42.7.4")
 	testImplementation("io.mockk:mockk:1.13.14")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
