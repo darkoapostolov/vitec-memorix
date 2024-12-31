@@ -15,6 +15,16 @@ To start the application, follow these steps:
 
    After creating the image, run the Docker container to start both the database and the application. Ensure the profile is set to `docker`.
 
+3. **Updating docker image for new changes:**
+
+   After upating the project there might be an issue using the new changes with docker, run the following commands to resolve the issue:
+   
+   ```bash
+   docker-compose down
+   docker-compose build --no-cache
+   docker-compose up
+   ```
+   
 ## Available API Endpoints
 
 Once the app is running, the following two API calls will be available:
@@ -60,7 +70,6 @@ Once the app is running, the following two API calls will be available:
   - 404 Bad Request (if the email is already present a 400 Bad Request is returned).
 ```json
    {
-      "message": "Duplicate e-mail: email@gmail.com",
-      "status": "400"
+      "error": "Duplicate e-mail: email@gmail.com
   }
 ```
