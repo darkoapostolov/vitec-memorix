@@ -3,7 +3,7 @@ package com.momorix.vitecmemorix.service
 import com.momorix.vitecmemorix.dto.UserCreationRequest
 import com.momorix.vitecmemorix.dto.UserListDTO
 import com.momorix.vitecmemorix.exception.BadRequestException
-import com.momorix.vitecmemorix.extesions.mapToDTO
+import com.momorix.vitecmemorix.extensions.mapToDTO
 import com.momorix.vitecmemorix.model.User
 import com.momorix.vitecmemorix.repository.UserRepository
 import com.momorix.vitecmemorix.utils.AESUtils

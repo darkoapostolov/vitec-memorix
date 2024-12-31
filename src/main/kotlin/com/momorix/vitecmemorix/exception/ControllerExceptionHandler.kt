@@ -12,12 +12,10 @@ class ControllerExceptionHandler {
     private val logger = LoggerFactory.getLogger(ControllerExceptionHandler::class.java)
     var errorResponse: MutableMap<String, String?> = HashMap()
 
-
     @ExceptionHandler(BadRequestException::class)
     fun handleBadRequestExceptions(ex: BadRequestException): ResponseEntity<Map<String, String?>> {
-        errorResponse["message"] = ex.message
-        errorResponse["status"] = HttpStatus.BAD_REQUEST.value().toString()
-        logger.error(errorResponse["message"])
+        errorResponse["error"] = ex.message
+        logger.error(errorResponse["error"])
         return ResponseEntity(errorResponse, HttpHeaders(), HttpStatus.BAD_REQUEST)
     }
 
