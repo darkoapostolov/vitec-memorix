@@ -70,6 +70,6 @@ Once the app is running, the following two API calls will be available:
   - 404 Bad Request (if the email is already present a 400 Bad Request is returned).
 ```json
    {
-      "error": "Duplicate e-mail: email@gmail.com
+      "error": "Duplicate e-mail: email@gmail.com"
   }
 ```
