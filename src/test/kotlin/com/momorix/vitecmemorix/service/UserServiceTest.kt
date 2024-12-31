@@ -2,7 +2,7 @@ package com.momorix.vitecmemorix.service
 
 import com.momorix.vitecmemorix.dto.UserCreationRequest
 import com.momorix.vitecmemorix.exception.BadRequestException
-import com.momorix.vitecmemorix.extesions.mapToDTO
+import com.momorix.vitecmemorix.extensions.mapToDTO
 import com.momorix.vitecmemorix.model.User
 import com.momorix.vitecmemorix.repository.UserRepository
 import io.mockk.every
@@ -84,14 +84,14 @@ class UserServiceTest {
             )
 
             every { userRepository.count() } returns users.size.toLong()
-            every { userRepository.findAllByNameStartingWith(query, pageable) } returns users
+            every { userRepository.findAllByNameStartingWithIgnoreCase(query, pageable) } returns users
 
             val result = userService.getUsers(query, limit)
 
             assertEquals(users.size, result.users.size)
             assertEquals(users.map { it.mapToDTO() }, result.users)
             verify(exactly = 1) { userRepository.count() }
-            verify(exactly = 1) { userRepository.findAllByNameStartingWith(query, pageable) }
+            verify(exactly = 1) { userRepository.findAllByNameStartingWithIgnoreCase(query, pageable) }
         }
 
         @Test
@@ -102,7 +102,7 @@ class UserServiceTest {
 
             assertEquals("Page size must not be less than one", exception.message)
             verify(exactly = 0) { userRepository.count() }
-            verify(exactly = 0) { userRepository.findAllByNameStartingWith(any(), any()) }
+            verify(exactly = 0) { userRepository.findAllByNameStartingWithIgnoreCase(any(), any()) }
         }
     }
 }

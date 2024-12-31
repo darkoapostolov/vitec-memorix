@@ -1,4 +1,4 @@
-package com.momorix.vitecmemorix.extesions
+package com.momorix.vitecmemorix.extensions
 
 import com.momorix.vitecmemorix.dto.UserDTO
 import com.momorix.vitecmemorix.model.User
